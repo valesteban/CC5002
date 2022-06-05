@@ -6,6 +6,7 @@ body{
 #map { 
     height: 180px;
 }
+
 .titulo{
     text-align:center;
     background-color:#770f10;
@@ -23,6 +24,11 @@ body{
     margin-top:20px;
     padding: 1px 10px 1px 10px;
     border: 1px solid black;
+}
+.rectangulo_cont_2{
+    background-color:#f3efe9;
+    
+
 }
 .rectangulo_contenido_naranjo{
     background-color:#F5B7B1;

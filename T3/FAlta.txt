@@ -1,0 +1,4 @@
+- en el listado de actividades no o me sale el nobre de al comuna
+- Arreglar mapa 
+- arreglar listado portada
+- graficos 
