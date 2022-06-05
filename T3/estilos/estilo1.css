@@ -3,6 +3,9 @@ body{
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     background-image: url("../imagenes/fondo15.png");
 }
+#map { 
+    height: 180px;
+}
 .titulo{
     text-align:center;
     background-color:#770f10;
