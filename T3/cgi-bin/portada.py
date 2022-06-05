@@ -62,10 +62,19 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
     
     print(file.format('Portarda',enHead ,"","Inicio",
     f"""<div class= 'rectangulo_contenido' id = 'contenido1'>
-        <p> ¡¡¡BIENVENIDES!!! a esta comunidad en la cual podrás tanto encontrar como registrar activiades.
-        </p>
+            <p> 
+                ¡¡¡BIENVENIDES!!! a esta comunidad en la cual podrás tanto encontrar como registrar activiades.
+            </p>
     </div>
+
     <div class= 'rectangulo_contenido'>
+        <div class= 'rectangulo_contenido' id = 'map'>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    </div>
+
+    <div class= 'rectangulo_contenido'>
+    
     <table class='tabla_normal'>
         <tr class='nombres-tabla'>
             <th> Inicio </th>
@@ -80,7 +89,6 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
 
     </table>
     </div>
-    <div class= 'rectangulo_contenido' id = 'map'>
     </div>
     <script src="../leaflet/leaflet.js"></script>
     <script src= ../mis-js/mapa.js></script>
