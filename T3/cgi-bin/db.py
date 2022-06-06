@@ -41,7 +41,6 @@ class DB:
 
 
 
-
     def guardar_actividad(self, data):
         """ 
         Este método guarda una actividad en la base de datos.
@@ -252,4 +251,24 @@ class DB:
             SELECT * FROM contactar_por WHERE actividad_id ={data}''' 
 
         self.cursor.execute(sql)  # ejecuta la consulta
-        return  self.cursor.fetchall()         
+        return  self.cursor.fetchall()   
+
+    def obtenerIdCOmunasActividades(self):
+        """
+        Metodo que retorna lista con las id de la scomunas que tiene asociada una actividad"""  
+        
+        sql = f"""SELECT DISTINCT comuna_id FROM actividad"""
+        
+        self.cursor.execute(sql)  # ejecuta la consulta
+        listaid =  self.cursor.fetchall() 
+        listaid =  [ val[0] for val in listaid ]
+        return  listaid
+
+
+    
+
+
+
+    
+
+                

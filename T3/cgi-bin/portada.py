@@ -5,6 +5,7 @@ import cgi
 import cgitb
 cgitb.enable()
 from db import DB
+import json
 
 print("Content-type: text/html; charset=UTF-8")
 print()
@@ -38,7 +39,17 @@ for actividad in ultimos5:
 
             """
     cosasInsertar = cosasInsertar+row    
-    
+
+#como todas las actividades si o si tendran imagenes 
+listita = db.obtenerIdCOmunasActividades()
+
+listitaComunas = []
+for id in listita:
+    comunaNombre = db.obtener_comuna_por_id(id)
+    listitaComunas.append(comunaNombre[0][1])
+
+with open('../') as file:
+    data = json.load(file)
 
 
 
@@ -64,12 +75,15 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
     f"""<div class= 'rectangulo_contenido' id = 'contenido1'>
             <p> 
                 ¡¡¡BIENVENIDES!!! a esta comunidad en la cual podrás tanto encontrar como registrar activiades.
+                {listita}
+                {listitaComunas}
             </p>
     </div>
 
     <div class= 'rectangulo_contenido'>
         <div class= 'rectangulo_contenido' id = 'map'>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
     </div>
     </div>
 
@@ -84,6 +98,7 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
             <th> Tema </th>
             <th> Foto </th>
 
+            
 
          {cosasInsertar}
 
