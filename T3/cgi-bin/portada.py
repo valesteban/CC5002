@@ -40,47 +40,41 @@ for actividad in ultimos5:
             """
     cosasInsertar = cosasInsertar+row    
 
-#como todas las actividades si o si tendran imagenes 
-listita = db.obtenerIdCOmunasActividades()
-
-listitaComunas = []
-for id in listita:
-    comunaNombre = db.obtener_comuna_por_id(id)
-    listitaComunas.append(comunaNombre[0][1])
-
-with open('../chileComunas.json') as file:
-    data = json.load(file)
-dic = {}
-for valores in data:
-    vv = valores["name"]
-    if vv in listitaComunas:
-        dic[vv] = (valores["lng"],valores["lat"])
-        
-    
-#dicc tiene las cominas con sus lat y log
-
-
 
 enHead = """
         <link rel='stylesheet' href='../estilos/estilo1.css'>
         <script src='../mis-js/FunAct.js'></script>
         
-        
+        <link rel="stylesheet" href="../leaflet/leaflet.css" />
+        <!-- no pongo esto porq importe los documentos estan mas abajo 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-        
-        
-        <script src= ../mis-js/mapa.js></script>
+         -->
         """
 
 with open('templates/template1.html','r', encoding='utf-8') as template:
     file = template.read()
     
     print(file.format('Portarda',enHead ,"","Inicio",
-    f"""
-    <div class= "rectangulo_contenido">
-    
-     <div id="map"></div>
-    </div> 
+    f"""<div class= 'rectangulo_contenido' id = 'contenido1'>
+        <p> ¡¡¡BIENVENIDES!!! a esta comunidad en la cual podrás tanto encontrar como registrar activiades.
+            <div class= 'rectangulo_contenido' id = 'map'><br>
+    </div>
+        </p>
+    </div>
+    <div class= 'rectangulo_contenido'>
+    <table class='tabla_normal'>
+        <tr class='nombres-tabla'>
+            <th> Inicio </th>
+            <th> Termino </th>
+            <th> Comuna </th>
+            <th> Sector </th>
+            <th> Tema </th>
+            <th> Foto </th>
+         {cosasInsertar}
+    </table>
+    </div>
+
+    <script src="../leaflet/leaflet.js"></script>
+    <script src= ../mis-js/map.js></script>
     """))
-    

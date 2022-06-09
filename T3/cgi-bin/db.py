@@ -264,6 +264,37 @@ class DB:
         listaid =  [ val[0] for val in listaid ]
         return  listaid
 
+    def obtenerFechaActividades(self):
+        """
+        Metodo que nos devuelve una lista con todas la fechas de inicio de las actividades en la base de datos
+        """
+        sql = f"""SELECT dia_hora_inicio FROM actividad"""  
+        self.cursor.execute(sql)  # ejecuta la consulta
+        listaid =  self.cursor.fetchall() 
+        return  [ val[0] for val in listaid ]
+
+    def obtenerAcntidPorActiv(self):
+        """
+        Metodo que nos devuelve una lista con los id de los temnas y la cantidad de actividades
+        en la base de datos con ese tema"""    
+        sql = "SELECT tema_id, COUNT(*) FROM actividad GROUP BY tema_id;"
+        self.cursor.execute(sql)  # ejecuta la consulta
+        listaid =  self.cursor.fetchall() 
+        #[ val[0] for val in listaid ]
+        return  listaid
+
+    def obtenerTemasId(self):    
+        """
+        Metodo que retorna lista de tuplas con los temas dentro de la base de datos
+        [('música',), ('deporte',), ('ciencias',) ]
+        """
+
+        sql = "SELECT id,nombre FROM tema WHERE 1"
+        self.cursor.execute(sql)  # ejecuta la consulta
+        return  self.cursor.fetchall()    
+
+
+
 
     
 

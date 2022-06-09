@@ -15,3 +15,12 @@ TAREA DESARROLLO WEB
 2- obtener latitud y longitud asociada
 3- agregar marcador al mapa
 ------------------------------------
+¿Quieren que la base de datos s eactualice de forma inmediata sin recargar la pagina?
+
+ basta con que se muestren los datos correctamente usando ajax,
+
+
+
+ GRAFICO 1
+ el primero es un gráfico de líneas que informa la cantidad de actividades
+por día. En el eje X muestra los días y en el eje Y muestra la cantidad de actividades

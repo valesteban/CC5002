@@ -1,7 +1,34 @@
+//OBTENER INFO POR MEDIO DE AJAX
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+    if (xhr.readyState===4 && xhr.status===200) {
+        let response = JSON.parse(xhr.responseText);
+        console.log(response);
+
+        Grafico1(response["grafico1"])
+       // console.log(response["grafico2"])
+        Grafico2(response["grafico2"])
+      //  console.log(response["grafico3"])
+        Grafico3(response["grafico3"])
+
+
+        
+
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    xhr.open("GET", '../cgi-bin/infoGraficos.py');
+    xhr.send();
+})
+
+
 //GRAFICO 1
 // el primero es un gráfico de líneas que informa la cantidad de actividades
 //por día. En el eje X muestra los días y en el eje Y muestra la cantidad de actividades. 
-document.addEventListener('DOMContentLoaded', function () {
+function Grafico1(info){
+    //console.log(info) //lista que s eagrega en el grafico 1
     let chart = Highcharts.chart("contenido-grafico-1", {
         chart: {
             type: 'line'
@@ -14,14 +41,29 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         series: [{
             
-            data: [1, 0, 42,43,6,33,87]
+            data: info
         }],
     });
-});
+
+}
 
 //GRAFICO 2
 //El segundo gráfico es un gráfico de torta que muestra el total de actividades por tipo
-document.addEventListener('DOMContentLoaded', function () {
+function Grafico2(info){
+    let data = [] ;
+    let i=0
+    let valores = Object.keys(info).map(function(key){
+        return info[key];
+    });
+    for ( x in info) {
+        tupla = [x,valores[i]]
+        data.push(tupla)
+        i+=1
+    }
+
+
+
+    console.log(valores)
     let chart = Highcharts.chart("contenido-grafico-2", {
         chart: {
             type: 'pie'
@@ -30,14 +72,15 @@ document.addEventListener('DOMContentLoaded', function () {
             text: 'Cantidad de Actividades por Tipo'
         },
         xAxis: {
-            categories: ['tipo1', 'tipo2', 'tipo3','tipo4','tipo5']
+            categories:['tipo1', 'tipo2', 'tipo3','tipo4','tipo5','tipo5','tipo5']
         },
         series: [{
             
-            data: [22,55,3,20,0]
+            data:data//[1, 1, 1,1 , 1, 1,1, 2, 1,1, 89] //[22,55,3,20,0]
         }],
     });
-});
+
+}
 
 //GRAFICO 3
 //El tercer gráfico es uno de barras que muestra tres barras por cada punto del eje X. El eje X son los
@@ -45,8 +88,17 @@ document.addEventListener('DOMContentLoaded', function () {
 //mañana (antes de las 11:00), la cantidad de actividades que se inician al mediodía (entre las
 //11:00 y 14:59) y la cantidad de actividades que se inician en la tarde (desde las 15:00) . El eje Y
 //indica la cantidad.
-
-document.addEventListener('DOMContentLoaded', function () {
+function Grafico3(info){
+    var mañana = Object.keys(info).map(function(key){
+        return info[key][0];
+    });
+    var mediodia = Object.keys(info).map(function(key){
+        return info[key][1];
+    });
+    var tarde = Object.keys(info).map(function(key){
+        return info[key][2];
+    });
+    
     const chart = Highcharts.chart("contenido-grafico-3", {
         chart: {
             type: 'column'
@@ -64,13 +116,15 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         series: [{
             name: 'Mañana',
-            data: [12,11,45,22,22,1, 0, 4,55,65,34,12,3]
+            data: mañana
         }, {
             name: 'Mediodía',
-            data: [12,11,45,22,22,1, 0, 4,55,65,34,12,3]
+            data: mediodia
         },{
             name:'Tarde',
-            data:[12,11,45,22,22,1, 0, 4,55,65,34,12,3]
+            data:tarde
         }]
     });
-});
+
+}
+

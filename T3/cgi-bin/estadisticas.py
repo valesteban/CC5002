@@ -15,11 +15,11 @@ db = DB('localhost', 'root', '', 'tarea2')
 
 enHead = """
             <link rel='stylesheet' href='../estilos/estilo1.css'>
-            <script src='../mis-js/graficos.js'></script>
-            <script src='https://code.highcharts.com/modules/oldie-polyfills.js'></script>
+            
             <script src='../code/highcharts.js'></script>
             <script src='../code/modules/exporting.js'></script>
             <script src='../code/modules/export-data.js'></script>
+            <script src='../mis-js/graficos.js'></script>
 """
 
 
@@ -29,7 +29,7 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
     print(file.format('Estadísticas', enHead,"","Estadísticas",
     f"""
     <div class="rectangulo_contenido" id="contenido-grafico-1">
-    
+    <p>cfgvbhjkml </p>    
     </div>
     <div class="rectangulo_contenido" id="contenido-grafico-2">
     
@@ -44,3 +44,7 @@ with open('templates/template1.html','r', encoding='utf-8') as template:
 
 <a class="centrar" href="portada.py">Volver al Inicio</a>
         """))
+
+
+
+      
