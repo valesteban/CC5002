@@ -1,10 +1,10 @@
-package controller;
+package com.example.t4.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.DB;
+import com.example.t4.model.DB;
 import org.json.JSONObject;
 
 import java.io.IOException;

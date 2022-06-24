@@ -1,9 +1,9 @@
-package controller;
+package com.example.t4.controller;
 //import org.json.JSONObject;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.DB;
+import com.example.t4.model.DB;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -16,30 +16,28 @@ public class VoteHandler extends HttpServlet {
     //Metodo que obtiene el votos y comentarios de una foto segun su id
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         JSONObject json = null;
+        //comentario_foto
+         //id	fecha	comentario	nota	foto_actividad
 
-        try{
-            DB ddbb = new DB("tarea2","root","");
-            ResultSet rs = ddbb.getVootes(Integer.parseInt(request.getParameter("id_foto")));
+
+        int idFoto = Integer.parseInt(request.getParameter("id"));
+
+        try {
+            DB ddbb = new DB("tarea2", "root", "");
+            ResultSet rs = ddbb.getComentariosNotas(idFoto);
             json = new JSONObject();
             int i = 0;
-
             while (rs.next()){
-                json.put(Integer.toString(i), rs.getInt(3));
+                json.put(Integer.toString(i),rs.getInt(3));
                 i++;
             }
-            String message = json.toString();
+            String mensaje = json.toString();
             PrintWriter out = response.getWriter();
-            out.println(message);
+
+            out.println(mensaje);
             ddbb.close();
-
-        }catch (SQLException | ClassNotFoundException e){
-            e.printStackTrace();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-
-
-    }
-    //Metodo que guardará en la base de datos la nota y comentario de la foto
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String id = request.getParameter("");
     }
 }

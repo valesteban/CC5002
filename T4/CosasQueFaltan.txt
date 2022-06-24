@@ -1,0 +1,4 @@
+COSAS QUE ME FALTAN:
+- Arreglar lo de traer las fotos directo de la base de datos , usar un handler
+- GET para obtener imagenes y comentarios
+- POST de nueva nota y comentario

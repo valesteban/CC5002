@@ -1,4 +1,4 @@
-package model;
+package com.example.t4.model;
 
 import java.io.PrintWriter;
 import java.sql.*;
@@ -16,13 +16,12 @@ public class DB {
         this.conn.close();
     }
 
-    public ResultSet getVootes(int id) throws SQLException{
+    public ResultSet getComentariosNotas(int id) throws SQLException {
         String query = "SELECT * from comentario_foto WHERE id = ? ";
-        //id	fecha	comentario	nota	foto_actividad
-        Statement stat = conn.createStatement();
-        ResultSet rs = stat.executeQuery(query);
-        return  rs;
-
+        PreparedStatement stat = conn.prepareStatement(query);
+        stat.setInt(1,id);
+        ResultSet rs = stat.executeQuery();
+        return rs;
     }
 
     public ResultSet getAllFotos() throws SQLException{
@@ -31,6 +30,15 @@ public class DB {
         ResultSet rs = stat.executeQuery(query);
         return  rs;
     }
+    public ResultSet getInfoImage(int id) throws SQLException{
+        String query = "SELECT * FROM foto WHERE id = ?";
+
+        PreparedStatement stat = conn.prepareStatement(query);
+        stat.setInt(1,id);
+        ResultSet rs = stat.executeQuery();
+        return rs;
+    }
+
 
     public void saveVote(String fecha,String comentario,String nota,String foto_actividad) throws SQLException{
         String query = "INSERT INTO comentario_foto (fecha ,comentario ,nota ,foto_actividad) values (?,?,?,?)";
