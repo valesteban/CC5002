@@ -17,7 +17,7 @@ public class VoteHandler extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         JSONObject json = null;
         //comentario_foto
-         //id	fecha	comentario	nota	foto_actividad
+        //id	fecha	comentario	nota	foto_actividad
 
 
         int idFoto = Integer.parseInt(request.getParameter("id"));
@@ -28,7 +28,7 @@ public class VoteHandler extends HttpServlet {
             json = new JSONObject();
             int i = 0;
             while (rs.next()){
-                json.put(Integer.toString(i),rs.getInt(3));
+                json.put(Integer.toString(i),rs.getInt(4));
                 i++;
             }
             String mensaje = json.toString();

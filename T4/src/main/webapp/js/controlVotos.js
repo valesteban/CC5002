@@ -13,6 +13,7 @@ function mostrarVotos(id){
     $.get("vote_handler",{
         id:id
     },function (data){
+        alert("");
         console.log("ffffddd");
 
     })
