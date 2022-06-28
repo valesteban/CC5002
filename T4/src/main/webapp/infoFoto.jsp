@@ -14,8 +14,8 @@
   <script src="js/imagenesVotos.js"> </script>
 </head>
 <body>
-<div class="titulo"><h1>INDEX 2</h1></div>
-
+<header><div class="titulo"><h1>INDEX 2</h1></div></header>
+<nav>
 <ul class="menu">
   <li class="entrada">
     <a href="">Home</a>
@@ -30,6 +30,8 @@
     <a href="">Estadísticas</a>
   </li>
 </ul>
+</nav>
+<main>
 <div class="contenido">
   <div class="rectangulo_contenido">
 
@@ -50,9 +52,10 @@
           pathFoto = data.getString(2);
           nombreRealFoto = data.getString(3);
         }
-        out.println("<img class= 'center' src= 'imagenes/"+pathFoto + "' alt= "+nombreRealFoto+" width='800' height='600' >");
+        out.println("<img class= 'center' src= 'imagenes/"+pathFoto + "' alt='fotito' width='800' height='600'>");
 
       %>
+
 
 
 
@@ -103,6 +106,7 @@
   </div>
 
 </div>
+</main>
 
 <script src="js/controlVotos.js"></script>
 </body>

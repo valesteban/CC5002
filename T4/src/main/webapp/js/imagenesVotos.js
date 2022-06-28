@@ -3,7 +3,11 @@ function redirigir(num) {
     //console.log("redirigir");
     window.location.href = "infoFoto.jsp"+'?id='+num;
 }
+$( document ).ready(function() {
+    $("th").on("click", function(){
 
-
-
-
+        let suClase = $(this).attr("class");
+       /// alert(suClase);
+        window.location.href = "infoFoto.jsp"+'?id='+ parseInt(suClase);
+    });
+});

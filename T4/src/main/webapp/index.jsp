@@ -12,8 +12,8 @@
     <script src="js/imagenesVotos.js"> </script>
 </head>
 <body>
-<div class="titulo"><h1>INDEX 2</h1></div>
-
+<header><div class="titulo"><h1>INDEX 2</h1></div></header>
+<nav>
 <ul class="menu">
     <li class="entrada">
         <a href="">Home</a>
@@ -28,6 +28,8 @@
         <a href="">Estadísticas</a>
     </li>
 </ul>
+</nav>
+    <main>
     <div class="contenido">
         <div id="tablaFotos" class="rectangulo_contenido">
 
@@ -47,8 +49,8 @@
                         out.println("<table>");
                     }
                     out.println(
-                            " <th onclick='"+funcion+"'>" +
-                            "           <img class= 'center' src= imagenes/"+urlImagen +" alt='imagen'  width='200' height='120' ></img>" +
+                            " <th class='"+idImagen+"'>" +
+                            "           <img class= 'center' src= imagenes/"+urlImagen +" alt='"+nombreOriginalImagen+"'  width='200' height='120' ></img>" +
                             " </th>");
                     if(mod == 0){
                         out.println("</table>");
@@ -68,6 +70,7 @@
         </div>
 
     </div>
+    </main>
 
 
 
