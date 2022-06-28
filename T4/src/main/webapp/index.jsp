@@ -12,7 +12,7 @@
     <script src="js/imagenesVotos.js"> </script>
 </head>
 <body>
-<div class="titulo">INDEX 2</div>
+<div class="titulo"><h1>INDEX 2</h1></div>
 
 <ul class="menu">
     <li class="entrada">
@@ -48,7 +48,7 @@
                     }
                     out.println(
                             " <th onclick='"+funcion+"'>" +
-                            "           <img class= 'center' src= imagenes/"+urlImagen +" alt= "+ nombreOriginalImagen+ " width='200' height='120' ></img>" +
+                            "           <img class= 'center' src= imagenes/"+urlImagen +" alt='imagen'  width='200' height='120' ></img>" +
                             " </th>");
                     if(mod == 0){
                         out.println("</table>");

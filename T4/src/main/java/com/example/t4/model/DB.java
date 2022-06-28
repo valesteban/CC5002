@@ -17,7 +17,8 @@ public class DB {
     }
 
     public ResultSet getComentariosNotas(int id) throws SQLException {
-        String query = "SELECT * from comentario_foto WHERE id = ? ";
+        //id	fecha	comentario	nota	foto_actividad
+        String query = "SELECT * from comentario_foto WHERE foto_actividad = ? ORDER BY fecha DESC ";
         PreparedStatement stat = conn.prepareStatement(query);
         stat.setInt(1,id);
         ResultSet rs = stat.executeQuery();
@@ -40,15 +41,16 @@ public class DB {
     }
 
 
-    public void saveVote(String fecha,String comentario,String nota,String foto_actividad) throws SQLException{
+    public void saveVote(String fecha,String comentario,int nota,int idFotoActividad) throws SQLException{
         String query = "INSERT INTO comentario_foto (fecha ,comentario ,nota ,foto_actividad) values (?,?,?,?)";
         //id	fecha	comentario	nota	foto_actividad
+        //en foto actividad de la tabla comentario_foto va  air el id de la foto de la tabla foto
         try{
             PreparedStatement stat = conn.prepareStatement(query);
             stat.setString(1,fecha);
             stat.setString(2,comentario);
-            stat.setString(3,nota);
-            stat.setString(4,foto_actividad);
+            stat.setInt(3,nota);
+            stat.setInt(4,idFotoActividad);
             stat.execute();
         }catch (SQLException e){
             e.printStackTrace();

@@ -14,7 +14,7 @@
   <script src="js/imagenesVotos.js"> </script>
 </head>
 <body>
-<div class="titulo">INDEX 2</div>
+<div class="titulo"><h1>INDEX 2</h1></div>
 
 <ul class="menu">
   <li class="entrada">
@@ -55,11 +55,12 @@
       %>
 
 
+
       <form id="votacion" action="vote_handler" method="post">
         <div >
 
-          <label>Nota</label>
-          <select name="nota">
+          <label for="nota" >Nota</label>
+          <select id="nota" name="nota">
             <option disabled selected>Selecciona una Nota</option>
             <option value="value1">1</option>
             <option value="value2">2</option>
@@ -72,12 +73,19 @@
         </div>
 
         <div>
-          <label>Comentario</label>
-          <input type="text" name="comentario-foto"  cols="50" rows="10" ></textarea>
+          <label for="comentario-foto" >Comentario</label>
+          <input type="text" name="comentario-foto" id="comentario-foto"  cols="50" rows="10" ></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Cometar y Evaluar </button>
 
       </form>
+      <div class="notaActual"></div>
+      <div id="comentarios" class="comentarios">
+
+        <ul class="listaC">
+
+        </ul>
+      </div>
 
     </div>
 

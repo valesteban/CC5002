@@ -4,3 +4,6 @@ function redirigir(num) {
     window.location.href = "infoFoto.jsp"+'?id='+num;
 }
 
+
+
+

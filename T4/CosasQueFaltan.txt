@@ -2,3 +2,9 @@ COSAS QUE ME FALTAN:
 - Arreglar lo de traer las fotos directo de la base de datos , usar un handler
 - GET para obtener imagenes y comentarios
 - POST de nueva nota y comentario
+
+
+COSAS MIAS
+- //en foto actividad de la tabla comentario_foto va  air el id de la foto de la tabla foto
+- los comentarios salen en orden debido a como se buscar en sql que luego los pone en una lista y es lo que se le pasa en el request
+- Cuando una foto no tiene aun notas sale NAN
